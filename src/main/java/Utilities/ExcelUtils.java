@@ -2,7 +2,10 @@ package Utilities;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.util.*;
 
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -14,6 +17,7 @@ public class ExcelUtils {
     private static XSSFWorkbook oWB;
     private static XSSFCell oCell;
     private static XSSFRow oRow;
+    private static XSSFRow oHeaderRow;
 
     public static void openExcelFile(String Path, String SheetName) throws Exception {
         try {
@@ -62,5 +66,97 @@ public class ExcelUtils {
         } catch (Exception e) {
             throw (e);
         }
+    }
+    public static HashMap<String,String> getEnvironmentParams(String chosenENV) throws Exception {
+        // We're getting environment settings so switch to the Env sheet
+        setExcelSheet("Env");
+        // Now get the column and row number for the chosen environment
+        int iRow = getRowNumForValue("ENV", chosenENV);
+        return getDataByRowNum(iRow);
+    }
+
+    public static List<String> getTestScheduleParams() throws Exception {
+        List<String> al = new ArrayList<String>();
+        // We're getting test case settings so switch to the Test Schedule sheet
+        setExcelSheet("TestSchedule");
+        // Get the test case by it's header value
+        int iCol = getColNumberFromHeaderValue("TestCase");
+        // Loop round rows in sheet getting all test case values into array
+        Iterator <Row> rowIterator = oWS.rowIterator();
+        while (rowIterator.hasNext()) {
+            oRow = (XSSFRow) rowIterator.next();
+            al.add(String.valueOf(oRow.getCell(iCol)) + ':' + String.valueOf(oRow.getCell(iCol + 1)));
+        }
+        return al;
+    }
+
+    public static List<String> getTestCaseParams(String strTC) throws Exception {
+        List<String> al = new ArrayList<String>();
+        // We're getting test case settings so switch to the Test Schedule sheet
+        setExcelSheet("TestCase");
+        // Get the test case by it's header value
+        int iCol = getColNumberFromHeaderValue("TestCase");
+        // Loop round rows in sheet getting all test case values into array
+        Iterator <Row> rowIterator = oWS.rowIterator();
+        while (rowIterator.hasNext()) {
+            oRow = (XSSFRow) rowIterator.next();
+            // Get the values next to the matching test case
+            if (String.valueOf(oRow.getCell(iCol)).equals(strTC)) {
+                al.add(String.valueOf(oRow.getCell(iCol + 1)) + ":" + String.valueOf(oRow.getCell(iCol + 2)));
+            }
+        }
+        return al;
+    }
+
+    private static int getColNumberFromHeaderValue(String headerVal) {
+        int iCol = 0;
+        oRow = oWS.getRow(0);
+        Iterator <Cell> cellIterator = oRow.cellIterator();
+        while (cellIterator.hasNext()) {
+            oCell = (XSSFCell) cellIterator.next();
+            String thisCell = oCell.getStringCellValue();
+            if (thisCell.equals(headerVal)) {
+                iCol = oCell.getColumnIndex();
+                break;
+            }
+        }
+        return iCol;
+    }
+    private static int getRowNumForValue(String headerVal, String searchVal) {
+        int iCol = 0;
+        int iRow = 0;
+        oRow = oWS.getRow(0);
+        Iterator <Cell> cellIterator = oRow.cellIterator();
+        while (cellIterator.hasNext()) {
+            oCell = (XSSFCell) cellIterator.next();
+            String thisCell = oCell.getStringCellValue();
+            if (thisCell.equals(headerVal)) {
+                iCol = oCell.getColumnIndex();
+                break;
+            }
+        }
+        Iterator <Row> rowIterator = oWS.rowIterator();
+        while (rowIterator.hasNext()) {
+            oRow = (XSSFRow) rowIterator.next();
+            oCell = oRow.getCell(iCol);
+            if (oCell.getStringCellValue().equals(searchVal)) {
+                iRow = oRow.getRowNum();
+                break;
+            }
+        }
+        return iRow;
+    }
+
+    private static HashMap<String,String> getDataByRowNum(int RowNum) {
+        HashMap<String,String> a = new HashMap<String,String>();
+        oHeaderRow = oWS.getRow(0);
+        oRow = oWS.getRow(RowNum);
+        Iterator <Cell> cellIterator = oRow.cellIterator();
+        while (cellIterator.hasNext()) {
+            oCell = (XSSFCell) cellIterator.next();
+            String headerVal = String.valueOf(oHeaderRow.getCell(oCell.getColumnIndex()));
+            a.put(headerVal, oCell.getStringCellValue());
+        }
+        return a;
     }
 }

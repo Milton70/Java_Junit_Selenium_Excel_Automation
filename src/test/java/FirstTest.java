@@ -1,100 +1,90 @@
 // junit
 import Utilities.Log;
 import org.junit.Test;
-import static org.junit.Assert.assertTrue;
+
 
 // Selenium
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.ie.InternetExplorerOptions;
 
 // File Utils
-import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import org.apache.commons.io.FileUtils;
+import java.util.HashMap;
+import java.util.List;
+import java.util.ListIterator;
 
 // Log4j
 import org.apache.log4j.xml.DOMConfigurator;
 
 // Homebrew classes
-import Utilities.Constant;
-import Utilities.ExcelUtils;
+import Utilities.*;;
 import pageObjects.*;
 
 public class FirstTest {
     @Test
     public void runComponents() throws Exception {
         try {
+            // Create driver for these tests
+            WebDriver driver = null;
+
             // Set up logging
             DOMConfigurator.configure("log4j.xml");
 
-            // Get current timestamp for screenshots
-            Date dNow = new Date();
-            SimpleDateFormat mytime = new SimpleDateFormat("yMd_Hmss");
-            String format = mytime.format(dNow);
-
+            // Start logging
             Log.info("Open Excel Driver");
-            ExcelUtils.openExcelFile(Constant.Path_TestData + Constant.File_TestData, "TestCase");
 
-            String sTestCase = ExcelUtils.getCellData(1, 1);
-            String sEnv = ExcelUtils.getCellData(1, 2);
+            // Open Excel Driver
+            ExcelUtils.openExcelFile(Constant.Path_TestData + Constant.File_TestData, "TestSchedule");
 
-            ExcelUtils.setExcelSheet("Env");
+            // Get test cases and environment
+            List<String> arrTestCases = ExcelUtils.getTestScheduleParams();
 
-            String sURL = ExcelUtils.getCellData(1, 1);
-            String sUserName = ExcelUtils.getCellData(1, 2);
-            String sPassword = ExcelUtils.getCellData(1, 3);
-            String sResultFolder = ExcelUtils.getCellData(1, 4);
+            // Loop round the test cases
+            ListIterator<String> litr = arrTestCases.listIterator(1);
+            while (litr.hasNext()) {
+                String strTCTE = litr.next();
+                String[] mysplit = strTCTE.split(":");
 
-            ExcelUtils.setExcelSheet("TestCase");
+                // Get environment fields
+                HashMap<String, String> hashEnvVars = (HashMap<String, String>) ExcelUtils.getEnvironmentParams(mysplit[1]);
 
-            String sComponent = ExcelUtils.getCellData(1, 2);
+                // Now get components to execute along with params
+                List<String> arrComponents = ExcelUtils.getTestCaseParams(mysplit[0]);
+                ListIterator<String> itrTC = arrComponents.listIterator();
+                while (itrTC.hasNext()) {
+                    String strCompParam = itrTC.next();
+                    String[] compSplit = strCompParam.split(":");
+                    String sComponent = compSplit[0];
 
-            Log.startTestCase(sComponent);
+                    Log.startTestCase(sComponent);
 
-            System.setProperty("webdriver.ie.driver", "C:/IdeaProjects/local jars/IEDriverServer.exe");
-            WebDriver driver = new InternetExplorerDriver();
-            driver.get(sURL);
-            assertTrue(driver.getTitle().equals("Certificate Error: Navigation Blocked"));
-            driver.navigate().to("javascript:document.getElementById('overridelink').click()");
+                    if (driver == null) {
+                        InternetExplorerOptions options = new InternetExplorerOptions();
+                        options.ignoreZoomSettings();
+                        options.introduceFlakinessByIgnoringSecurityDomains();
+                        //options.setUnhandledPromptBehaviour(UnexpectedAlertBehaviour.IGNORE);
 
-            Log.info("Started Application - got through certificate error");
+                        System.setProperty("webdriver.ie.driver", Constant.IE_Driver_Path);
+                        driver = new InternetExplorerDriver(options);
+                    }
 
-            login_BVA.txt_UserId(driver).sendKeys(sUserName);
-            login_BVA.txt_Password(driver).sendKeys(sPassword);
-            login_BVA.btn_Login(driver).click();
+                    // Call the components
+                    Components.main(driver, new String[]{sComponent}, hashEnvVars);
 
-            File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-            FileUtils.copyFile(scrFile, new File(sResultFolder + "/" + sComponent + "_" + format + ".png"));
+                    Log.endTestCase(sComponent);
+                }
 
-            Log.info("Screenshot taken.");
+                // Write out a pass
+                ExcelUtils.setExcelSheet("TestSchedule");
+                ExcelUtils.setCellData("Pass", 1, 2);
 
-            logout_BVA.btn_Logout(driver).click();
-            driver.quit();
-
-            Log.info("Logged out and quit browser.");
-
-            try {
-                Runtime.getRuntime().exec("taskkill /F /IM IEDriverServer.exe");
-            } catch (IOException e) {
-                e.printStackTrace();
             }
-
-            // Write out a pass
-            ExcelUtils.setCellData("Pass", 1, 6);
-
-            Log.endTestCase("Login BVA");
-
+            TearDown.KillBrowser(driver);
         } catch (Exception e) {
-            try {
-                Runtime.getRuntime().exec("taskkill /F /IM IEDriverServer.exe");
-                Runtime.getRuntime().exec("taskkill /F /IM iexplore.exe");
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
+            Log.fatal(String.valueOf(e));
+            TearDown.KillBrowser(null);
         }
     }
 }

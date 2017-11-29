@@ -1,0 +1,24 @@
+<component name="libraryTable">
+  <library name="client-combined-3.7.1-sources">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../local jars/client-combined-3.7.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../local jars/commons-collections4-4.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../local jars/commons-io-2.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../local jars/curvesapi-1.04.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../local jars/hamcrest-core-1.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../local jars/junit-4.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../local jars/log4j-1.2.17.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../local jars/poi-3.17.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../local jars/poi-examples-3.17.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../local jars/poi-excelant-3.17.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../local jars/poi-ooxml-3.17.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../local jars/poi-ooxml-schemas-3.17.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../local jars/poi-scratchpad-3.17.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../local jars/xmlbeans-2.6.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../local jars/client-combined-3.7.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
