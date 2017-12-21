@@ -11,6 +11,7 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import static org.apache.poi.ss.usermodel.Row.*;
+import org.apache.poi.ss.usermodel.DataFormatter;
 
 public class ExcelUtils {
     private static XSSFSheet oWS;
@@ -19,13 +20,12 @@ public class ExcelUtils {
     private static XSSFRow oRow;
     private static XSSFRow oHeaderRow;
 
-    public static void openExcelFile(String Path, String SheetName) throws Exception {
+    public static void openExcelFile(String Path) throws Exception {
         try {
             // Open Excel
             FileInputStream ExcelFile;
             ExcelFile = new FileInputStream(Path);
             oWB = new XSSFWorkbook(ExcelFile);
-            oWS = oWB.getSheet(SheetName);
         } catch (Exception e) {
             throw(e);
         }
@@ -92,6 +92,7 @@ public class ExcelUtils {
 
     public static List<String> getTestCaseParams(String strTC) throws Exception {
         List<String> al = new ArrayList<String>();
+
         // We're getting test case settings so switch to the Test Schedule sheet
         setExcelSheet("TestCase");
         // Get the test case by it's header value
@@ -102,7 +103,18 @@ public class ExcelUtils {
             oRow = (XSSFRow) rowIterator.next();
             // Get the values next to the matching test case
             if (String.valueOf(oRow.getCell(iCol)).equals(strTC)) {
-                al.add(String.valueOf(oRow.getCell(iCol + 1)) + ":" + String.valueOf(oRow.getCell(iCol + 2)));
+                List<String> il = new ArrayList<String>();
+                //int noCols = oRow.getPhysicalNumberOfCells();
+                Iterator <Cell> cellIterator = oRow.cellIterator();
+                while (cellIterator.hasNext()) {
+                    oCell = (XSSFCell) cellIterator.next();
+                    String thisCell = oCell.getStringCellValue();
+                    il.add(thisCell);
+                }
+                // Remove the first two elements as they're already sent
+                il.remove(0);
+                il.remove(0);
+                al.add(String.valueOf(oRow.getCell(iCol + 1)) + ">>" + il);
             }
         }
         return al;
@@ -148,6 +160,7 @@ public class ExcelUtils {
     }
 
     private static HashMap<String,String> getDataByRowNum(int RowNum) {
+        DataFormatter formatter = new DataFormatter();
         HashMap<String,String> a = new HashMap<String,String>();
         oHeaderRow = oWS.getRow(0);
         oRow = oWS.getRow(RowNum);
@@ -155,7 +168,7 @@ public class ExcelUtils {
         while (cellIterator.hasNext()) {
             oCell = (XSSFCell) cellIterator.next();
             String headerVal = String.valueOf(oHeaderRow.getCell(oCell.getColumnIndex()));
-            a.put(headerVal, oCell.getStringCellValue());
+            a.put(headerVal, formatter.formatCellValue(oRow.getCell(oCell.getColumnIndex())));
         }
         return a;
     }

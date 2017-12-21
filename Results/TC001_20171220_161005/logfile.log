@@ -33,8 +33,7 @@
 2017-12-20 16:10:23,775 INFO  [Log] Found Account data [ 539459 ] in the table. 
 2017-12-20 16:10:23,832 INFO  [Log] Found Account data [ ACTIVE ] in the table. 
 2017-12-20 16:10:23,888 INFO  [Log] Found Account data [ CURRENT ] in the table. 
-2017-12-20 16:10:23,944 INFO  [Log] Found Account data [  ] in t
-he table.
+2017-12-20 16:10:23,944 INFO  [Log] Found Account data [  ] in the table. 
 2017-12-20 16:10:24,001 INFO  [Log] Found Account data [ Mizuho London ] in the table. 
 2017-12-20 16:10:24,067 INFO  [Log] Found Account data [  ] in the table. 
 2017-12-20 16:10:24,219 INFO  [Log] Found Account data [ AIP LONDON LIMITED ] in the table. 
@@ -87,4 +86,3 @@ he table.
 2017-12-20 16:10:44,680 INFO  [Log] TC001 [ Logout_BVA ]  
 2017-12-20 16:10:44,897 INFO  [Log] Clicked on the Logout button 
 2017-12-20 16:10:44,899 INFO  [Log] -- 
-2017-12-20 16:10:44,953 INFO  [Log] Log File copied. 

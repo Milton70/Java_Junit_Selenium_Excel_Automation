@@ -1,6 +1,8 @@
 package Utilities;
 
 import org.openqa.selenium.WebDriver;
+import pageObjects.*;
+
 import java.io.IOException;
 
 public class TearDown {
@@ -14,8 +16,8 @@ public class TearDown {
             Runtime.getRuntime().exec("taskkill /F /IM iexplore.exe");
         } catch (IOException e) {
             Log.fatal(String.valueOf(e));
+            throw new AssertionError("Execution stopped because of errors - check the log.");
         }
-        throw new AssertionError("Execution stopped because of errors - check the log.");
     }
 
 }
