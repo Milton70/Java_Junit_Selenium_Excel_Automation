@@ -7,97 +7,9 @@ import org.openqa.selenium.WebElement;
 public class OR {
     private static WebElement element = null;
 
-    /* ------------------------------------------------- Set up OR ---------------------------------------------------*/
-    public static WebElement txt_UserId(WebDriver driver) {
-        element = driver.findElement(By.id("j_username"));
-        return element;
-    }
-    public static WebElement txt_Password(WebDriver driver) {
-        element = driver.findElement(By.id("j_password"));
-        return element;
-    }
-    public static WebElement btn_Login(WebDriver driver) {
-        element = driver.findElement(By.id("login"));
-        return element;
-    }
-    public static WebElement Branch(WebDriver driver) {
-        element = driver.findElement(By.id("instruction_bankKey"));
-        return element;
-    }
-    public static WebElement Execution_Date(WebDriver driver) {
-        element = driver.findElement(By.id("instruction_instructedDay"));
-        return element;
-    }
-    public static WebElement Batch_Booking(WebDriver driver) {
-        element = driver.findElement(By.id("instruction_batchBooking"));
-        return element;
-    }
-    public static WebElement Waive_Charges(WebDriver driver) {
-        element = driver.findElement(By.id("chargesWaived"));
-        return element;
-    }
-    public static WebElement Category_Purpose(WebDriver driver) {
-        element = driver.findElement(By.id("instruction_categoryPurpose"));
-        return element;
-    }
-    public static WebElement Customer_Id(WebDriver driver) {
-        element = driver.findElement(By.id("search_equals_customerId"));
-        return element;
-    }
-    public static WebElement Customer_Name(WebDriver driver) {
-        element = driver.findElement(By.id("search_like_customerName"));
-        return element;
-    }
-    public static WebElement IBAN_Account_Number(WebDriver driver) {
-        element = driver.findElement(By.id("search_like_internationalAccountNumber"));
-        return element;
-    }
-    public static WebElement Currency(WebDriver driver) {
-        element = driver.findElement(By.id("search_equals_currency"));
-        return element;
-    }
-    public static WebElement Internal_Account_Number(WebDriver driver) {
-        element = driver.findElement(By.id("search_like_bankInternalAccountNumber"));
-        return element;
-    }
-    public static WebElement Currency_Default(WebDriver driver) {
-        element = driver.findElement(By.id("search_equals_currencyDefault"));
-        return element;
-    }
-    public static WebElement Search(WebDriver driver){
-        element = driver.findElement(By.id("defaultBttn"));
-        return element;
-    }
-    public static WebElement Debit_Party_Name(WebDriver driver){
-        element = driver.findElement(By.id("instruction_originatingPartyName"));
-        return element;
-    }
-    public static WebElement Debit_Party_Addr_Line_1(WebDriver driver) {
-        element = driver.findElement(By.id("instruction_originatingPartyAddressLine1"));
-        return element;
-    }
-    public static WebElement Debit_Party_Addr_Line_2(WebDriver driver) {
-        element = driver.findElement(By.id("instruction_originatingPartyAddressLine2"));
-        return element;
-    }
-    public static WebElement Debit_Party_Country(WebDriver driver) {
-        element = driver.findElement(By.id("instruction_originatingPartyCountry"));
-        return element;
-    }
-    public static WebElement Debit_Party_IBAN(WebDriver driver) {
-        element = driver.findElement(By.id("instruction_originatingPartyAccount"));
-        return element;
-    }
-    public static WebElement Debit_Party_AgentId(WebDriver driver) {
-        element = driver.findElement(By.id("instruction_originatingPartyAgentId"));
-        return element;
-    }
-    public static WebElement Debit_Party_EnrichBIC(WebDriver driver) {
-        element = driver.findElement(By.id("instructionEnrichBIC"));
-        return element;
-    }
-    public static WebElement Debit_Party_Id_Type(WebDriver driver) {
-        element = driver.findElement(By.id("instruction_originatingPartyModeOper"));
+    /* ------------------------------------------------- Misc Fields -------------------------------------------------*/
+    public static WebElement Instruction_Created_Message(WebDriver driver) {
+        element = driver.findElement(By.id("instruction_message"));
         return element;
     }
     public static WebElement Debit_Party_Id(WebDriver driver) {
@@ -108,6 +20,7 @@ public class OR {
         element = driver.findElement(By.id("instruction_originatingPartyIdIssuer"));
         return element;
     }
+
     public static WebElement Debit_Party_Id_Scheme_Name_Code(WebDriver driver) {
         element = driver.findElement(By.id("instruction_originatingPartyIdSchemeNameCodeOrganisation"));
         return element;
@@ -236,8 +149,18 @@ public class OR {
         element = driver.findElement(By.id("instruction_ultimateOriginatingPartyIdBirthCountry"));
         return element;
     }
-    public static WebElement Credit_Party_EnrichBIC(WebDriver driver) {
-        element = driver.findElement(By.id("transactionEnrichBIC"));
+
+    public static WebElement Credit_Party_Reference_Type_Code(WebDriver driver) {
+        element = driver.findElement(By.id("transaction_remittance1CreditPartyReferenceTypeCode"));
         return element;
     }
+    public static WebElement Credit_Party_Reference_Type_Issuer(WebDriver driver) {
+        element = driver.findElement(By.id("transaction_remittance1CreditPartyReferenceTypeIssuer"));
+        return element;
+    }
+    public static WebElement Credit_Party_Reference(WebDriver driver) {
+        element = driver.findElement(By.id("transaction_remittance1CreditPartyReference"));
+        return element;
+    }
+
 }

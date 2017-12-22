@@ -1,90 +1,87 @@
-2017-12-20 16:10:05,512 INFO  [Log] TC001 [ Login_BVA ]  
-2017-12-20 16:10:13,018 INFO  [Log] Started Application - got through certificate error 
-2017-12-20 16:10:15,586 INFO  [Log] Logged into BVA 
-2017-12-20 16:10:15,848 INFO  [Log] -- 
-2017-12-20 16:10:15,850 INFO  [Log] TC001 [ Choose_From_Menu ]  
-2017-12-20 16:10:17,101 INFO  [Log] Manual Entry=>SEPA=>Manual Entry CCTI - menu option chosen & [ Create a Credit Transfer Initiation ] displayed. 
-2017-12-20 16:10:17,418 INFO  [Log] -- 
-2017-12-20 16:10:17,420 INFO  [Log] TC001 [ Search_And_Load_Template ]  
-2017-12-20 16:10:21,919 INFO  [Log] Found Account data [ AIP LONDON LIMITED ] in the table. 
-2017-12-20 16:10:22,074 INFO  [Log] Found Account data [ USD ] in the table. 
-2017-12-20 16:10:22,131 INFO  [Log] Found Account data [ F10143729-USD-20000 ] in the table. 
-2017-12-20 16:10:22,198 INFO  [Log] Found Account data [ GB08MHCB40506910143729 ] in the table. 
-2017-12-20 16:10:22,263 INFO  [Log] Found Account data [ 539459 ] in the table. 
-2017-12-20 16:10:22,320 INFO  [Log] Found Account data [ ACTIVE ] in the table. 
-2017-12-20 16:10:22,380 INFO  [Log] Found Account data [ CURRENT ] in the table. 
-2017-12-20 16:10:22,448 INFO  [Log] Found Account data [  ] in the table. 
-2017-12-20 16:10:22,504 INFO  [Log] Found Account data [ Mizuho London ] in the table. 
-2017-12-20 16:10:22,570 INFO  [Log] Found Account data [  ] in the table. 
-2017-12-20 16:10:22,714 INFO  [Log] Found Account data [ AIP LONDON LIMITED ] in the table. 
-2017-12-20 16:10:22,780 INFO  [Log] Found Account data [ JPY ] in the table. 
-2017-12-20 16:10:22,836 INFO  [Log] Found Account data [ F10261331-JPY-20000 ] in the table. 
-2017-12-20 16:10:22,902 INFO  [Log] Found Account data [ GB49MHCB40506910261331 ] in the table. 
-2017-12-20 16:10:22,958 INFO  [Log] Found Account data [ 539459 ] in the table. 
-2017-12-20 16:10:23,014 INFO  [Log] Found Account data [ ACTIVE ] in the table. 
-2017-12-20 16:10:23,070 INFO  [Log] Found Account data [ CURRENT ] in the table. 
-2017-12-20 16:10:23,136 INFO  [Log] Found Account data [  ] in the table. 
-2017-12-20 16:10:23,192 INFO  [Log] Found Account data [ Mizuho London ] in the table. 
-2017-12-20 16:10:23,258 INFO  [Log] Found Account data [  ] in the table. 
-2017-12-20 16:10:23,459 INFO  [Log] Found Account data [ AIP LONDON LIMITED ] in the table. 
-2017-12-20 16:10:23,516 INFO  [Log] Found Account data [ EUR ] in the table. 
-2017-12-20 16:10:23,572 INFO  [Log] Found Account data [ F10804139-EUR-20000 ] in the table. 
-2017-12-20 16:10:23,648 INFO  [Log] Found Account data [ GB60MHCB40506910804139 ] in the table. 
-2017-12-20 16:10:23,775 INFO  [Log] Found Account data [ 539459 ] in the table. 
-2017-12-20 16:10:23,832 INFO  [Log] Found Account data [ ACTIVE ] in the table. 
-2017-12-20 16:10:23,888 INFO  [Log] Found Account data [ CURRENT ] in the table. 
-2017-12-20 16:10:23,944 INFO  [Log] Found Account data [  ] in t
-he table.
-2017-12-20 16:10:24,001 INFO  [Log] Found Account data [ Mizuho London ] in the table. 
-2017-12-20 16:10:24,067 INFO  [Log] Found Account data [  ] in the table. 
-2017-12-20 16:10:24,219 INFO  [Log] Found Account data [ AIP LONDON LIMITED ] in the table. 
-2017-12-20 16:10:24,275 INFO  [Log] Found Account data [ GBP ] in the table. 
-2017-12-20 16:10:24,340 INFO  [Log] Found Account data [ H10085442-GBP-20000 ] in the table. 
-2017-12-20 16:10:24,406 INFO  [Log] Found Account data [ GB29MHCB40506910085442 ] in the table. 
-2017-12-20 16:10:24,470 INFO  [Log] Found Account data [ 539459 ] in the table. 
-2017-12-20 16:10:24,527 INFO  [Log] Found Account data [ ACTIVE ] in the table. 
-2017-12-20 16:10:24,582 INFO  [Log] Found Account data [ CURRENT ] in the table. 
-2017-12-20 16:10:24,638 INFO  [Log] Found Account data [  ] in the table. 
-2017-12-20 16:10:24,693 INFO  [Log] Found Account data [ Mizuho London ] in the table. 
-2017-12-20 16:10:24,759 INFO  [Log] Found Account data [  ] in the table. 
-2017-12-20 16:10:25,007 INFO  [Log] -- 
-2017-12-20 16:10:25,009 INFO  [Log] TC001 [ Choose_Customer_IBAN ]  
-2017-12-20 16:10:27,139 INFO  [Log] Found & Chose Customer IBAN [ GB60MHCB40506910804139 ]. 
-2017-12-20 16:10:29,757 INFO  [Log] -- 
-2017-12-20 16:10:29,759 INFO  [Log] TC001 [ Validate_And_Enrich_Debit_Party ]  
-2017-12-20 16:10:29,871 INFO  [Log] Passed - [ Name ] equals expected value of [ AIP LONDON LIMITED ]. 
-2017-12-20 16:10:30,120 ERROR [Log] Failed - expected value [ P & CO  CHARTERED ACCOUNTANTS ] for field [  Address_Line_1 ]. Instead found [ P & CO  CHARTERED ACCOUNTANTS, LOND ]. Please check. 
-2017-12-20 16:10:30,325 ERROR [Log] Failed - expected value [ UNIT 13 ] for field [  Address_Line_2 ]. Instead found [ UNIT 13, 2 ARTICHOKE HILL ]. Please check. 
-2017-12-20 16:10:42,173 INFO  [Log] Passed - [  Country ] equals expected value of [ United Kingdom ]. 
-2017-12-20 16:10:42,307 INFO  [Log] Passed - [  IBAN ] equals expected value of [ GB60MHCB40506910804139 ]. 
-2017-12-20 16:10:44,639 INFO  [Log] -- 
-2017-12-20 16:10:44,640 INFO  [Log] TC001 [ Transaction_Information ]  
-2017-12-20 16:10:44,642 INFO  [Log] -- 
-2017-12-20 16:10:44,643 INFO  [Log] TC001 [ Enter_Credit_Party ]  
-2017-12-20 16:10:44,645 INFO  [Log] -- 
-2017-12-20 16:10:44,646 INFO  [Log] TC001 [ Enter_Credit_Party_Agent ]  
-2017-12-20 16:10:44,648 INFO  [Log] -- 
-2017-12-20 16:10:44,649 INFO  [Log] TC001 [ Enter_Remittance_Information ]  
-2017-12-20 16:10:44,651 INFO  [Log] -- 
-2017-12-20 16:10:44,652 INFO  [Log] TC001 [ Add_And_Verify_Transaction_Summary ]  
-2017-12-20 16:10:44,654 INFO  [Log] -- 
-2017-12-20 16:10:44,655 INFO  [Log] TC001 [ Save_Transaction_And_Capture_Instruction ]  
-2017-12-20 16:10:44,657 INFO  [Log] -- 
-2017-12-20 16:10:44,658 INFO  [Log] TC001 [ Choose_From_Menu ]  
-2017-12-20 16:10:44,660 INFO  [Log] -- 
-2017-12-20 16:10:44,661 INFO  [Log] TC001 [ Verify_Instruction_Details ]  
-2017-12-20 16:10:44,663 INFO  [Log] -- 
-2017-12-20 16:10:44,664 INFO  [Log] TC001 [ Approve_Worklist_Item_And_Submit ]  
-2017-12-20 16:10:44,666 INFO  [Log] -- 
-2017-12-20 16:10:44,668 INFO  [Log] TC001 [ Verify_Transaction_Table ]  
-2017-12-20 16:10:44,669 INFO  [Log] -- 
-2017-12-20 16:10:44,671 INFO  [Log] TC001 [ Verify_Instruction_History ]  
-2017-12-20 16:10:44,672 INFO  [Log] -- 
-2017-12-20 16:10:44,674 INFO  [Log] TC001 [ Verify_Transaction_Details ]  
-2017-12-20 16:10:44,675 INFO  [Log] -- 
-2017-12-20 16:10:44,677 INFO  [Log] TC001 [ Verify_Transaction_History ]  
-2017-12-20 16:10:44,678 INFO  [Log] -- 
-2017-12-20 16:10:44,680 INFO  [Log] TC001 [ Logout_BVA ]  
-2017-12-20 16:10:44,897 INFO  [Log] Clicked on the Logout button 
-2017-12-20 16:10:44,899 INFO  [Log] -- 
-2017-12-20 16:10:44,953 INFO  [Log] Log File copied. 
+2017-12-21 14:58:59,027 INFO  [Log] TC001 [ Login_BVA ]  
+2017-12-21 14:59:06,391 INFO  [Log] Started Application - got through certificate error 
+2017-12-21 14:59:09,011 INFO  [Log] Logged into BVA 
+2017-12-21 14:59:09,214 INFO  [Log] -- 
+2017-12-21 14:59:09,214 INFO  [Log] TC001 [ Choose_From_Menu ]  
+2017-12-21 14:59:10,603 INFO  [Log] Manual Entry=>SEPA=>Manual Entry CCTI - menu option chosen & [ Create a Credit Transfer Initiation ] displayed. 
+2017-12-21 14:59:10,712 INFO  [Log] -- 
+2017-12-21 14:59:10,712 INFO  [Log] TC001 [ Search_And_Load_Template ]  
+2017-12-21 14:59:14,628 INFO  [Log] Found Account data [ AIP LONDON LIMITED ] in the table. 
+2017-12-21 14:59:14,690 INFO  [Log] Found Account data [ USD ] in the table. 
+2017-12-21 14:59:14,752 INFO  [Log] Found Account data [ F10143729-USD-20000 ] in the table. 
+2017-12-21 14:59:14,815 INFO  [Log] Found Account data [ GB08MHCB40506910143729 ] in the table. 
+2017-12-21 14:59:14,877 INFO  [Log] Found Account data [ 539459 ] in the table. 
+2017-12-21 14:59:14,940 INFO  [Log] Found Account data [ ACTIVE ] in the table. 
+2017-12-21 14:59:15,002 INFO  [Log] Found Account data [ CURRENT ] in the table. 
+2017-12-21 14:59:15,064 INFO  [Log] Found Account data [  ] in the table. 
+2017-12-21 14:59:15,127 INFO  [Log] Found Account data [ Mizuho London ] in the table. 
+2017-12-21 14:59:15,189 INFO  [Log] Found Account data [  ] in the table. 
+2017-12-21 14:59:15,345 INFO  [Log] Found Account data [ AIP LONDON LIMITED ] in the table. 
+2017-12-21 14:59:15,408 INFO  [Log] Found Account data [ JPY ] in the table. 
+2017-12-21 14:59:15,470 INFO  [Log] Found Account data [ F10261331-JPY-20000 ] in the table. 
+2017-12-21 14:59:15,532 INFO  [Log] Found Account data [ GB49MHCB40506910261331 ] in the table. 
+2017-12-21 14:59:15,595 INFO  [Log] Found Account data [ 539459 ] in the table. 
+2017-12-21 14:59:15,657 INFO  [Log] Found Account data [ ACTIVE ] in the table. 
+2017-12-21 14:59:15,720 INFO  [Log] Found Account data [ CURRENT ] in the table. 
+2017-12-21 14:59:15,798 INFO  [Log] Found Account data [  ] in the table. 
+2017-12-21 14:59:15,860 INFO  [Log] Found Account data [ Mizuho London ] in the table. 
+2017-12-21 14:59:15,922 INFO  [Log] Found Account data [  ] in the table. 
+2017-12-21 14:59:16,078 INFO  [Log] Found Account data [ AIP LONDON LIMITED ] in the table. 
+2017-12-21 14:59:16,141 INFO  [Log] Found Account data [ EUR ] in the table. 
+2017-12-21 14:59:16,203 INFO  [Log] Found Account data [ F10804139-EUR-20000 ] in the table. 
+2017-12-21 14:59:16,266 INFO  [Log] Found Account data [ GB60MHCB40506910804139 ] in the table. 
+2017-12-21 14:59:16,328 INFO  [Log] Found Account data [ 539459 ] in the table. 
+2017-12-21 14:59:16,390 INFO  [Log] Found Account data [ ACTIVE ] in the table. 
+2017-12-21 14:59:16,453 INFO  [Log] Found Account data [ CURRENT ] in the table. 
+2017-12-21 14:59:16,515 INFO  [Log] Found Account data [  ] in the table. 
+2017-12-21 14:59:16,578 INFO  [Log] Found Account data [ Mizuho London ] in the table. 
+2017-12-21 14:59:16,640 INFO  [Log] Found Account data [  ] in the table. 
+2017-12-21 14:59:16,796 INFO  [Log] Found Account data [ AIP LONDON LIMITED ] in the table. 
+2017-12-21 14:59:16,858 INFO  [Log] Found Account data [ GBP ] in the table. 
+2017-12-21 14:59:16,921 INFO  [Log] Found Account data [ H10085442-GBP-20000 ] in the table. 
+2017-12-21 14:59:16,999 INFO  [Log] Found Account data [ GB29MHCB40506910085442 ] in the table. 
+2017-12-21 14:59:17,061 INFO  [Log] Found Account data [ 539459 ] in the table. 
+2017-12-21 14:59:17,124 INFO  [Log] Found Account data [ ACTIVE ] in the table. 
+2017-12-21 14:59:17,186 INFO  [Log] Found Account data [ CURRENT ] in the table. 
+2017-12-21 14:59:17,248 INFO  [Log] Found Account data [  ] in the table. 
+2017-12-21 14:59:17,311 INFO  [Log] Found Account data [ Mizuho London ] in the table. 
+2017-12-21 14:59:17,373 INFO  [Log] Found Account data [  ] in the table. 
+2017-12-21 14:59:17,529 INFO  [Log] -- 
+2017-12-21 14:59:17,529 INFO  [Log] TC001 [ Choose_Customer_IBAN ]  
+2017-12-21 14:59:19,557 INFO  [Log] Found & Chose Customer IBAN [ GB60MHCB40506910804139 ]. 
+2017-12-21 14:59:21,554 INFO  [Log] -- 
+2017-12-21 14:59:21,554 INFO  [Log] TC001 [ Validate_And_Enrich_Debit_Party ]  
+2017-12-21 14:59:21,679 INFO  [Log] Passed - [ Name ] equals expected value of [ AIP LONDON LIMITED ]. 
+2017-12-21 14:59:21,788 INFO  [Log] Passed - [  Address_Line_1 ] equals expected value of [ P & CO  CHARTERED ACCOUNTANTS, LOND ]. 
+2017-12-21 14:59:21,897 INFO  [Log] Passed - [  Address_Line_2 ] equals expected value of [ UNIT 13, 2 ARTICHOKE HILL ]. 
+2017-12-21 14:59:33,519 INFO  [Log] Passed - [  Country ] equals expected value of [ United Kingdom ]. 
+2017-12-21 14:59:33,644 INFO  [Log] Passed - [  IBAN ] equals expected value of [ GB60MHCB40506910804139 ]. 
+2017-12-21 14:59:34,986 INFO  [Log] -- 
+2017-12-21 14:59:34,986 INFO  [Log] TC001 [ Enter_Transaction_Information ]  
+2017-12-21 14:59:35,688 INFO  [Log] Transaction data entered. 
+2017-12-21 14:59:35,781 INFO  [Log] -- 
+2017-12-21 14:59:35,781 INFO  [Log] TC001 [ Enter_Credit_Party ]  
+2017-12-21 14:59:36,577 INFO  [Log] -- 
+2017-12-21 14:59:36,577 INFO  [Log] TC001 [ Enter_Credit_Party_Agent_And_Enrich_BIC ]  
+2017-12-21 14:59:37,622 INFO  [Log] -- 
+2017-12-21 14:59:37,622 INFO  [Log] TC001 [ Enter_Remittance_Information ]  
+2017-12-21 14:59:38,168 INFO  [Log] -- 
+2017-12-21 14:59:38,168 INFO  [Log] TC001 [ Add_And_Verify_Transaction_Summary ]  
+2017-12-21 14:59:42,801 INFO  [Log] Success - Found [ MARUBENI EUROPE LIMITED ] for the [ Credit_Party_Name ] column. 
+2017-12-21 14:59:42,801 INFO  [Log] Success - Found [ GB45MHCB40506910780741 ] for the [  Credit_Party_Account ] column. 
+2017-12-21 14:59:42,801 INFO  [Log] Success - Found [ MHCBGB2L ] for the [  Credit_Party_Agent_Id ] column. 
+2017-12-21 14:59:42,801 INFO  [Log] Success - Found [ 16.00 ] for the [  Transaction_Amount ] column. 
+2017-12-21 14:59:42,801 INFO  [Log] Success - Found [ EUR ] for the [  Instructed_Currency ] column. 
+2017-12-21 14:59:42,801 INFO  [Log] Success - Found [ xx999xx ] for the [ End-to-End Identification ] column. 
+2017-12-21 14:59:42,926 INFO  [Log] -- 
+2017-12-21 14:59:42,926 INFO  [Log] TC001 [ Save_Transaction_And_Capture_Instruction ]  
+2017-12-21 15:00:46,216 FATAL [Log] Failure - The Transaction was saved but an Instruction was not created. Error message [ "Debtor Address Line 1" shouldn't contain any of the following symbols: >#=% ] displayed. Please check, aborting... 
+2017-12-21 15:00:50,413 INFO  [Log] Clicked on the Logout button 
+2017-12-21 15:00:53,767 FATAL [Log] org.openqa.selenium.NoSuchElementException: Unable to find element with css selector == #instruction_message
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.7.1', revision: '8a0099a', time: '2017-11-06T21:07:31.527Z'
+System info: host: 'LM018076W7', ip: '172.22.132.90', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.8.0_152'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities {acceptInsecureCerts: false, browserName: internet explorer, browserVersion: 11, javascriptEnabled: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, se:ieOptions: {browserAttachTimeout: 0, elementScrollBehavior: 0, enablePersistentHover: true, ie.browserCommandLineSwitches: , ie.ensureCleanSession: false, ie.fileUploadDialogTimeout: 3000, ie.forceCreateProcessApi: false, ignoreProtectedModeSettings: false, ignoreZoomSetting: false, initialBrowserUrl: http://localhost:2331/, nativeEvents: true, requireWindowFocus: false}, setWindowRect: true}
+Session ID: acccf33f-c218-4460-9c5f-2277dc93f118
+*** Element info: {Using=id, value=instruction_message} 

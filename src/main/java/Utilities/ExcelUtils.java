@@ -108,7 +108,7 @@ public class ExcelUtils {
                 Iterator <Cell> cellIterator = oRow.cellIterator();
                 while (cellIterator.hasNext()) {
                     oCell = (XSSFCell) cellIterator.next();
-                    String thisCell = oCell.getStringCellValue();
+                    String thisCell = oCell.getStringCellValue().replace(",", "|");
                     il.add(thisCell);
                 }
                 // Remove the first two elements as they're already sent
